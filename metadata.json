@@ -1,0 +1,8 @@
+{
+  "name": "Waste2Worth",
+  "description": "A web platform to connect bio-waste providers with researchers and innovators to upcycle waste into valuable biotech resources. Features include waste posting with image analysis, advanced search with geo-mapping, an educational hub with grounded answers, and a collaborative chat.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone"
+  ]
+}
