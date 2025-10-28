@@ -5,7 +5,7 @@ import { BookOpenIcon } from '../components/icons/BookOpenIcon';
 import { SpeakerIcon } from '../components/icons/SpeakerIcon';
 import { Spinner } from '../components/Spinner';
 
-// Fix: Add audio decoding functions to handle raw PCM data from the Text-to-Speech API, as Buffer is not available in the browser.
+// Add audio decoding functions to handle raw PCM data from the Text-to-Speech API, as Buffer is not available in the browser.
 function decode(base64: string) {
   const binaryString = atob(base64);
   const len = binaryString.length;

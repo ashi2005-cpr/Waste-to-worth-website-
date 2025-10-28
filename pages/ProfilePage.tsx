@@ -1,5 +1,5 @@
 import React from 'react';
-import { User } from '../types';
+import { User, UserRole } from '../types';
 import { UserIcon } from '../components/icons/UserIcon';
 import { BuildingOfficeIcon } from '../components/icons/BuildingOfficeIcon';
 import { AtSymbolIcon } from '../components/icons/AtSymbolIcon';
@@ -32,7 +32,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ user }) => {
         </div>
         <div className="text-center md:text-left flex-grow">
           <h1 className="text-4xl font-bold text-brand-green-800">{user.fullName}</h1>
-          <p className="text-xl text-brand-brown-800 capitalize">{user.role === 'provider' ? 'Waste Provider' : 'Researcher / Innovator'}</p>
+          <p className="text-xl text-brand-brown-800 capitalize">{user.role === UserRole.Provider ? user.role : 'Researcher / Innovator'}</p>
           <p className="mt-2 text-md text-brand-brown-600 flex items-center justify-center md:justify-start gap-2">
             <BuildingOfficeIcon className="w-5 h-5" />
             <span>{user.organization}</span>

@@ -21,7 +21,7 @@ export interface User {
   location: string;
   fieldType: string;
   userCategory: string;
-  role: 'provider' | 'researcher';
+  role: UserRole;
   wasteType?: string;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RecycleIcon } from '../components/icons/RecycleIcon';
 import { HandshakeIcon } from '../components/icons/HandshakeIcon';
-import { Page, User } from '../types';
+import { Page, User, UserRole } from '../types';
 import { UserIcon } from '../components/icons/UserIcon';
 import { BuildingOfficeIcon } from '../components/icons/BuildingOfficeIcon';
 import { AtSymbolIcon } from '../components/icons/AtSymbolIcon';
@@ -54,7 +54,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, login }) => {
       location,
       fieldType,
       userCategory,
-      role,
+      role: role === 'provider' ? UserRole.Provider : UserRole.Researcher,
       wasteType: role === 'provider' ? wasteType : undefined,
     };
     login(newUser);
