@@ -25,27 +25,31 @@ To run it locally, you just need a simple static file server.
     ```
 4.  Open your browser and navigate to the URL provided by the server (usually `http://localhost:3000`).
 
-## 🌐 How to Deploy to GitHub Pages
+**Note:** For the application to connect to the Gemini API, you will need to deploy it to a hosting provider that supports environment variables (see below).
 
-You can easily deploy this application for free using GitHub Pages.
+## 🌐 Deployment
 
-1.  **Create a GitHub Repository:**
-    - Go to [GitHub](https://github.com) and create a new public repository.
+### ⚠️ Important: Hosting Requirements
 
-2.  **Upload Project Files:**
-    - Upload all the files from this project (`index.html`, `index.tsx`, `App.tsx`, and all the component/pages/etc. folders) to your new repository.
+This application **cannot be deployed to standard static hosting services like GitHub Pages**.
 
-3.  **Enable GitHub Pages:**
-    - In your repository, go to the **Settings** tab.
-    - In the left sidebar, click on **Pages**.
-    - Under the "Build and deployment" section, for the **Source**, select **Deploy from a branch**.
-    - Choose the branch where your code is located (e.g., `main` or `master`).
-    - For the folder, select `/(root)`.
-    - Click **Save**.
+The reason is that the application's code (`services/geminiService.ts`) is designed to securely access the Gemini API key from an environment variable (`process.env.API_KEY`). Static hosts like GitHub Pages do not provide a mechanism to securely expose environment variables to client-side JavaScript. Attempting to deploy there will result in an "API_KEY environment variable is not set" error, and the app will not function.
 
-4.  **Wait and Visit:**
-    - GitHub will start building and deploying your site. This might take a few minutes.
-    - Once it's done, the URL for your live site (e.g., `https://<your-username>.github.io/<your-repo-name>/`) will be displayed at the top of the GitHub Pages settings page. Click the link to see your deployed application!
+### Recommended Hosting Providers
+
+To deploy this application correctly, you must use a hosting provider that supports environment variables for modern web applications. Excellent free options include:
+
+-   **[Vercel](https://vercel.com/)**
+-   **[Netlify](https://netlify.com/)**
+-   **[Firebase Hosting](https://firebase.google.com/docs/hosting)**
+
+**General Deployment Steps:**
+
+1.  Push your code to a GitHub, GitLab, or Bitbucket repository.
+2.  Sign up for an account with one of the providers above and connect your repository.
+3.  In the project settings on the hosting provider's dashboard, find the section for "Environment Variables".
+4.  Add a new environment variable with the name `API_KEY` and paste your Google Gemini API key as the value.
+5.  Trigger a deployment. The hosting service will build and deploy your site, making the `API_KEY` securely available to the application.
 
 ## 🛠️ Tech Stack
 
